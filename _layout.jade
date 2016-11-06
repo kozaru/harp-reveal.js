@@ -1,0 +1,45 @@
+doctype html
+html(lang='ja')
+	head
+		meta(charset='utf-8')
+		title Title
+		meta(name='description', content='discription')
+		meta(name='author', content='author name')
+		meta(name='apple-mobile-web-app-capable', content='yes')
+		meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+		|<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Baloo+Bhai|Baloo+Da|Ropa+Sans|Varela+Round" rel="stylesheet">
+		link(rel='stylesheet', href='/node_modules/reveal.js/css/reveal.css')
+		link#theme(rel='stylesheet', href='/node_modules/reveal.js/css/theme/black.css')
+		// Theme used for syntax highlighting of code
+		link(rel='stylesheet', href='/node_modules/reveal.js/lib/css/zenburn.css')
+		// Printing and PDF exports
+		//- <link rel="stylesheet" href="/node_modules/reveal.js/css/print/pdf.css" type="text/css">
+		| <!--[if lt IE 9]>
+		| <script src="/node_modules/reveal.js/lib/js/html5shiv.js"></script>
+		| <![endif]-->
+	body
+		.reveal
+			// Any section element inside of this container is displayed as a slide
+			.slides
+				!= yield
+		script(src='/node_modules/reveal.js/lib/js/head.min.js')
+		script(src='/node_modules/reveal.js/js/reveal.js')
+		script.
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'plugin/zoom-js/zoom.js', async: true },
+			{ src: 'plugin/notes/notes.js', async: true }
+			]
+			});
